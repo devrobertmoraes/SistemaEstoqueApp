@@ -21,6 +21,32 @@ public class Program
             ExibirMenu();
             string opcao = Console.ReadLine();
 
+            switch (opcao)
+            {
+                case "1":
+                    AdicionarProduto();
+                    break;
+                case "2":
+                    ListarProdutos();
+                    break;
+                case "3":
+                    AtualizarProduto();
+                    break;
+                case "4":
+                    ExcluirProduto();
+                    break;
+                case "5":
+                    continuar = false;
+                    Console.WriteLine("Saindo do sistema, até mais!");
+                    break;
+                default:
+                    Console.WriteLine("Opção inválida, escolha um número entre 1 e 5");
+                    break;
+            }
+
+            Console.WriteLine("\nPressione qualquer tecla para sair.");
+            Console.ReadKey();
+            Console.Clear();
         }
 
         static void ExibirMenu()
