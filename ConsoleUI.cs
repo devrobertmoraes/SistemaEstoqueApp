@@ -8,11 +8,11 @@ namespace SistemaEstoqueApp
 {
     public class ConsoleUI
     {
-        private readonly ProdutoRepository _produtoRepository;
+        private readonly ProdutoService _produtoService;
 
-        public ConsoleUI(ProdutoRepository produtoRepository)
+        public ConsoleUI(ProdutoService produtoService)
         {
-            _produtoRepository = produtoRepository ?? throw new ArgumentNullException(nameof(produtoRepository));
+            _produtoService = produtoService ?? throw new ArgumentNullException(nameof(produtoService));
         }
 
         public void Run()
@@ -87,7 +87,7 @@ namespace SistemaEstoqueApp
             Produto novoProduto = new Produto(nome, preco, quantidade);
             try
             {
-                _produtoRepository.AdicionarProduto(novoProduto);
+                _produtoService.AdicionarProduto(novoProduto);
             }
             catch (SqlException ex)
             {
@@ -105,7 +105,7 @@ namespace SistemaEstoqueApp
             Console.WriteLine("\n--- Lista de Produtos ---");
             try
             {
-                List<Produto> produtos = _produtoRepository.ObterTodosProdutos();
+                List<Produto> produtos = _produtoService.ObterTodosProdutos();
 
                 if (produtos.Count == 0)
                 {
@@ -149,7 +149,7 @@ namespace SistemaEstoqueApp
 
             try
             {
-                Produto produtoExistente = _produtoRepository.ObterProdutoPorId(idParaAtualizar);
+                Produto produtoExistente = _produtoService.ObterProdutoPorId(idParaAtualizar);
 
                 if (produtoExistente == null)
                 {
@@ -196,7 +196,7 @@ namespace SistemaEstoqueApp
                     }
                 }
 
-                _produtoRepository.AtualizarProduto(produtoExistente);
+                _produtoService.AtualizarProduto(produtoExistente);
             }
             catch (SqlException ex)
             {
@@ -222,7 +222,7 @@ namespace SistemaEstoqueApp
 
             try
             {
-                _produtoRepository.ExcluirProduto(idParaExcluir);
+                _produtoService.ExcluirProduto(idParaExcluir);
             }
             catch (SqlException ex)
             {

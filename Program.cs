@@ -12,7 +12,9 @@ public class Program
     {
         ProdutoRepository produtoRepository = new ProdutoRepository();
 
-        ConsoleUI consoleUI = new ConsoleUI(produtoRepository);
+        ProdutoService produtoService = new ProdutoService(produtoRepository);
+
+        ConsoleUI consoleUI = new ConsoleUI(produtoService);
 
         consoleUI.Run();
     }
