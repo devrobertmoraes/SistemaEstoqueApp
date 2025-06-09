@@ -8,9 +8,9 @@ namespace SistemaEstoqueApp
 {
     public class ConsoleUI
     {
-        private readonly ProdutoService _produtoService;
+        private readonly IProdutoService _produtoService;
 
-        public ConsoleUI(ProdutoService produtoService)
+        public ConsoleUI(IProdutoService produtoService)
         {
             _produtoService = produtoService ?? throw new ArgumentNullException(nameof(produtoService));
         }

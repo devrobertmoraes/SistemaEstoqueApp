@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace SistemaEstoqueApp
 {
-    public class ProdutoService
+    public class ProdutoService : IProdutoService
     {
-        private readonly ProdutoRepository _produtoRepository;
+        private readonly IProdutoRepository _produtoRepository;
 
-        public ProdutoService(ProdutoRepository produtoRepository)
+        public ProdutoService(IProdutoRepository produtoRepository)
         {
             _produtoRepository = produtoRepository ?? throw new ArgumentNullException(nameof(produtoRepository));
         }

@@ -10,9 +10,9 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        ProdutoRepository produtoRepository = new ProdutoRepository();
+        IProdutoRepository produtoRepository = new ProdutoRepository();
 
-        ProdutoService produtoService = new ProdutoService(produtoRepository);
+        IProdutoService produtoService = new ProdutoService(produtoRepository);
 
         ConsoleUI consoleUI = new ConsoleUI(produtoService);
 

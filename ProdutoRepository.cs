@@ -6,7 +6,7 @@ using Azure.Core.Pipeline;
 
 namespace SistemaEstoqueApp
 {
-    public class ProdutoRepository
+    public class ProdutoRepository : IProdutoRepository
     {
         private readonly string _connectionString = "Server=.\\SQLEXPRESS;Database=EstoqueDB;Integrated Security=True;TrustServerCertificate=True";
 
